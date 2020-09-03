@@ -31,36 +31,36 @@ namespace Helper
                 switch (choice)
                 {
                     case 1:
-                        humanManager.AddNewHuman();
+                        humanManager.AddNewHuman();     //wywołanie managera
                         break;
                     case 2:
-                        workManager.AddNewWork();
+                        workManager.AddNewWork();       //wywołanie managera
                         break;
                     case 3:
-                        humanManager.ShowAllHumans();
+                        humanManager.ShowAllHumans();   //wywołanie managera
                         break;
                     case 4:
-                        workManager.ShowAllWorks();
+                        workManager.ShowAllWorks();     //wywołanie managera
                         break;
                     case 5:
-                        int humanID = workManager.DeleteWorker();
-                        humanManager.DeleteWork(humanID);
+                        int humanID = workManager.DeleteWorker();   //usunięcie pracownika i zwrócenie jego ID
+                        humanManager.DeleteWork(humanID);           //usunięcie pracy u pracownika o danym ID
                         break;
                     case 6:
-                        Work work = workManager.DeleteWork();
-                        humanManager.DeleteWork(work);
+                        Work work = workManager.DeleteWork();       //usunięcie pracy z listy i pobranie jej
+                        humanManager.DeleteWork(work);              //zmiana na bezrobotych osób pracujących w tej firmie
                         break;
                     case 7:
-                        humanManager.AddWork(workManager.GetWorkData());
+                        humanManager.AddWork(workManager.GetWorkData());    //dodanie pracy pobranej z listy service i podanej przez manager
                         break;
                     case 8:
-                        humanManager.DeleteWork(workManager.DeleteWorker());
+                        humanManager.DeleteWork(workManager.DeleteWorker());//usunięcie z pracy pracownika o danym id
                         break;
                     case 9:
-                        workManager.ShowAllWorkers();
+                        workManager.ShowAllWorkers();           //pokazanie wszystkich pracowników danego zakładu
                         break;
                     case 10:
-                        loop = false;
+                        loop = false;               //koniec pętli
                         break;
                     default:
                         break;

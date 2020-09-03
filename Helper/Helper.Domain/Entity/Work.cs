@@ -9,6 +9,11 @@ namespace Helper.Domain.Entity
     {
         public List<Human> Workers { get; set; }
 
+        /// <summary>
+        /// Dodaje rzeczy bez których obiekt nie ma sensu
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
         public Work(int id, string name)
         {
             ID = id;

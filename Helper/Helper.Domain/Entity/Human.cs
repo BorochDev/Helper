@@ -12,6 +12,12 @@ namespace Helper.Domain.Entity
         public int Age { get; set; }
         public Work WorkIn { get; set; }
 
+        /// <summary>
+        /// Dodaje rzeczy bez których obiekt nie ma sensu
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="surname"></param>
         public Human(int id, string name, string surname)
         {
             ID = id;

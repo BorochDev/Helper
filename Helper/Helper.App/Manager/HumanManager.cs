@@ -19,21 +19,21 @@ namespace Helper.App.Manager
         {
             Console.Clear();
             Console.Write("Podaj imię: ");
-            var name = Console.ReadLine();
+            var name = Console.ReadLine();          //pobieram imie do zmiennej
             Console.Write("Podaj nazwisko: ");
-            var surname = Console.ReadLine();
+            var surname = Console.ReadLine();       //pobieram nazwisko do zmiennej
 
-            var id = humanService.GetLastId();
+            var id = humanService.GetLastId();      //pobieram ostatnie id i zwiększam je o 1
             id++;
-            humanService.AddItem(new Human(id, name, surname));
+            humanService.AddItem(new Human(id, name, surname));     //dodaje nowy obiekt Human do listy
             Console.ReadKey();
         }
 
         public void ShowAllHumans()
         {
             Console.Clear();
-            var Humans = humanService.GetAllItems();
-            foreach (var item in Humans)
+            var Humans = humanService.GetAllItems();        //pobieram całą liste 
+            foreach (var item in Humans)                    //wypisuje dane 
             {
                 Console.Write($"{item.ID}) {item.Name}, {item.Surname}, pracuje w {item.WorkIn.Name} ");
             }
@@ -44,9 +44,9 @@ namespace Helper.App.Manager
         {
             Console.Clear();
             Console.Write("Podaj ID człowieka: ");
-            int.TryParse(Console.ReadLine(), out int id);
+            int.TryParse(Console.ReadLine(), out int id);       //pobieram id z konsolki
 
-            Human human = humanService.GetItemBy(id);
+            Human human = humanService.GetItemBy(id);           //pobranie obiektu z danym id
             Console.Write($"{human.ID}) {human.Name}, {human.Surname}, pracuje w {human.WorkIn.Name} ");
             Console.ReadKey();
         }
@@ -55,12 +55,12 @@ namespace Helper.App.Manager
         {
             Console.Clear();
             Console.Write("Podaj ID człowieka do usunięcia: ");
-            int.TryParse(Console.ReadLine(), out int id);
+            int.TryParse(Console.ReadLine(), out int id);           //pobranie id z konsolki
 
-            Human toDelete = humanService.GetItemBy(id);
+            Human toDelete = humanService.GetItemBy(id);            //pobranie obiektu z listy 
             if (toDelete !=null)
             {
-                humanService.DeleteItem(toDelete);
+                humanService.DeleteItem(toDelete);                  //usunięcie jeśli istnieje
             }
             else
             {
@@ -85,11 +85,11 @@ namespace Helper.App.Manager
 
         public void DeleteWork(Work work)
         {
-            humanService.DeleteWork(work);
+            humanService.DeleteWork(work);          //zmiana na bezrobotnych osób pracujących w work
         }
         public void DeleteWork(int HumanId)
         {
-            humanService.DeleteWork(HumanId);
+            humanService.DeleteWork(HumanId);       //usunięcie pracy człowiekowi z danym id
         }
     }
 }
